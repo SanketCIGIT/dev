@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-service
+spec:
+  type: LoadBalancer # Exposes the service to an external IP
+  selector:
+    app: flask-app
+  ports:
+  - protocol: TCP
+    port: 5000   # Users will access on this port
+    targetPort: 5000 # Container’s internal port
+
